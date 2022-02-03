@@ -1,0 +1,41 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "ticketsystem"
+  namespace: "default"
+  labels:
+    app: "ticketsystem"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "ticketsystem"
+  template:
+    metadata:
+      labels:
+        app: "ticketsystem"
+    spec:
+      containers:
+      - name: "madhavi-sha256-1"
+        image: "gcr.io/cap1-339903/github.com/1234567ms/madhavi@sha256:f6343b9ee9b087249a5ac617da02129e565f6ccf23afec1390332b22d67c975c"
+---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "ticketsystem-hpa-iiqz"
+  namespace: "default"
+  labels:
+    app: "ticketsystem"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "ticketsystem"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80
