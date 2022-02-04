@@ -1,3 +1,3 @@
 FROM postgres
-ENV POSTGRES_DB=ticketsystem
+ENV POSTGRES_DB=ticketsystemdb
 ENV POSTGRES_PASSWORD=1234567ms
