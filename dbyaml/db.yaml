@@ -18,12 +18,12 @@ spec:
     spec:
       containers:
       - name: "madhavi-sha256-1"
-        image: "gcr.io/cap1-339903/github.com/1234567ms/madhavi@sha256:f6343b9ee9b087249a5ac617da02129e565f6ccf23afec1390332b22d67c975c"
+        image: "gcr.io/cap1-339903/github.com/1234567ms/madhavi@sha256:3b0910112dee1df0b4a1f1d0631696cba01390fae43b1f8234895cb74253e90e"
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
 metadata:
-  name: "ticketsystemdb-hpa-bbbg"
+  name: "ticketsystemdb-hpa-3gsv"
   namespace: "default"
   labels:
     app: "ticketsystemdb"
@@ -39,4 +39,3 @@ spec:
     resource:
       name: "cpu"
       targetAverageUtilization: 80
-
